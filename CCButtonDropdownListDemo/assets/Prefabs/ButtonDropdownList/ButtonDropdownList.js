@@ -485,3 +485,5 @@ var ButtonDropdownList = cc.Class({
         this._optionDataList = null;
     }
 });
+
+module.exports = ButtonDropdownList;
