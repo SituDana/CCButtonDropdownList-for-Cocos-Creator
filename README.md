@@ -13,20 +13,20 @@ Cocos Creator 引擎中没有提供一款拿来即用的下拉列表控件，参
 
 ### buttonDropdownList.initDropdownList(optionButtonTemplate, options, titleButtonTemplate, selectedOptionButtonTemplate)
 ### 参数
-- optionButtonTemplate  cc.Prefab   选项按钮模板(Button)
-- options? {                     
-        placeHolder? String:                当placeholder为空的时候，默认选项为列表第一个
-        hideSelectedOption?: Boolean        打开列表的时候，当前选中的选项是否在列表中显示 默认为true
-        paddingLeftAndRight?: Number        下拉框两侧边距 默认为5
-        paddingTopAndBottom?: Number        下拉框上下边距 默认为5
-        spacingY?: Number                   选项之间间隙 默认为3
-        marginTop?: Number                  下拉列表距标题按钮距离 默认为0
-        maxListHeight?: Number              列表限高 默认为0：不限制高度
-        listBackground?: cc.SpriteFrame     下拉列表背景图片
-        optionButtonSize?: cc.Size          下来选项按钮大小
-    }
-- titleButtonTemplate?   cc.Prefab   头部按钮模板(Button)，如果不设置，默认使用optionButtonTemplate
-- selectedOptionButtonTemplate?  cc.Prefab  列表中选中的按钮模板(Button)，如果不设置，默认使用optionButtonTemplate,只有当 hideSelectedOption = false 的时候有效
+- **optionButtonTemplate: cc.Prefab**   选项按钮模板(Button)
+- **options? {**                   
+        **placeHolder?: String**               当placeholder为空的时候，默认选项为列表第一个
+        **hideSelectedOption?: Boolean**        打开列表的时候，当前选中的选项是否在列表中显示 默认为true
+        **paddingLeftAndRight?: Number**        下拉框两侧边距 默认为5
+        **paddingTopAndBottom?: Number**        下拉框上下边距 默认为5
+        **spacingY?: Number**                   选项之间间隙 默认为3
+        **marginTop?: Number**                  下拉列表距标题按钮距离 默认为0
+        **maxListHeight?: Number**              列表限高 默认为0：不限制高度
+        **listBackground?: cc.SpriteFrame**     下拉列表背景图片
+        **optionButtonSize?: cc.Size**          下来选项按钮大小
+    **}**
+- **titleButtonTemplate?: cc.Prefab**   头部按钮模板(Button)，如果不设置，默认使用optionButtonTemplate
+- **selectedOptionButtonTemplate?: cc.Prefab**  列表中选中的按钮模板(Button)，如果不设置，默认使用optionButtonTemplate,只有当 hideSelectedOption = false 的时候有效
 
 ## 2. ButtonDropdownList 功能接口
 
