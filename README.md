@@ -13,6 +13,7 @@ Cocos Creator 引擎中没有提供一款拿来即用的下拉列表控件，参
 
 ### buttonDropdownList.initDropdownList(optionButtonTemplate, options, titleButtonTemplate, selectedOptionButtonTemplate)
 ### 参数
+```
 - **optionButtonTemplate: cc.Prefab**   选项按钮模板(Button)
 - **options? {**                   
         **placeHolder?: String**               当placeholder为空的时候，默认选项为列表第一个
@@ -27,6 +28,7 @@ Cocos Creator 引擎中没有提供一款拿来即用的下拉列表控件，参
     **}**
 - **titleButtonTemplate?: cc.Prefab**   头部按钮模板(Button)，如果不设置，默认使用optionButtonTemplate
 - **selectedOptionButtonTemplate?: cc.Prefab**  列表中选中的按钮模板(Button)，如果不设置，默认使用optionButtonTemplate,只有当 hideSelectedOption = false 的时候有效
+```
 
 ## 2. ButtonDropdownList 功能接口
 
