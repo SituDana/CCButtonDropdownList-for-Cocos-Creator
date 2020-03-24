@@ -57,6 +57,14 @@ initDropdownList(){
     dropdownListController.setOptionDataList(dataList, '1');
 }
 ```
+### 只设置 optionButtonTemplate，所有按钮一样
+![demo_dropdown_1.png](images/demo_dropdown_1.png)
+
+### 设置头部按钮样式 titleButtonTemplate
+![demo_dropdown_2.png](images/demo_dropdown_2.png)
+
+### 设置头部按钮样式 titleButtonTemplate 和 选中按钮样式 selectedOptionButtonTemplate
+![demo_dropdown_3.png](images/demo_dropdown_3.png)
 
 ## 2. ButtonDropdownList 功能接口
 
