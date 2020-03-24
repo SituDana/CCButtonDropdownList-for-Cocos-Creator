@@ -54,10 +54,10 @@ cc.Class({
             });
         }
         this._dataList1 = dataList;
-        dropdownListController.setOptionDataList(dataList);
         dropdownListController.addSelectionChangedEventHandler((selectionData)=>{
             this.lbSelection1.string = 'Selected: '+ selectionData.key;
         }, this);
+        dropdownListController.setOptionDataList(dataList, '1');
     },
 
     initDropdownListWithTitleTemplate(){
@@ -81,10 +81,10 @@ cc.Class({
             });
         }
         this._dataList2 = dataList;
-        dropdownListWithTitleController.setOptionDataList(dataList);
         dropdownListWithTitleController.addSelectionChangedEventHandler((selectionData)=>{
             this.lbSelection2.string = 'Selected: '+ selectionData.key;
         }, this);
+        dropdownListWithTitleController.setOptionDataList(dataList);
     },
 
     initDropdownListWithSelectionTemplate(){

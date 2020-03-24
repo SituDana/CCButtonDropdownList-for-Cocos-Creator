@@ -151,9 +151,9 @@ var ButtonDropdownList = cc.Class({
     /**
      * 初始化下拉列表数据
      * @param {Array} dataList 下拉列表数据 [{key, label}]
-     * @param {String} _selectedKey 下拉列表默认选项
+     * @param {String} selectedKey 下拉列表默认选项
      */
-    setOptionDataList(dataList, _selectedKey) {
+    setOptionDataList(dataList, selectedKey) {
         if (!dataList || dataList.length <= 0) {
             return;
         }
@@ -161,7 +161,7 @@ var ButtonDropdownList = cc.Class({
         for (let data of dataList) {
             data.enabled = true;
         }
-        this._selectedKey = _selectedKey || null;
+        this._selectedKey = selectedKey || null;
     },
 
     onLoad() {
@@ -174,8 +174,21 @@ var ButtonDropdownList = cc.Class({
             this.mask.node.parent = null;
             this.mask.node.on(cc.Node.EventType.TOUCH_END, this._fold, this);
 
-            if(!this._selectedKey){
-                this._initTitleButton();
+            if(this.titleContainer.childrenCount <= 0){
+                if(!!this._selectedKey){
+                    let selection;
+                    for (let data of this._optionDataList) {
+                        if (data.key == this._selectedKey) {
+                            selection = data;
+                            break;
+                        }
+                    }
+                    this._initTitleButton(selection);
+                } else {
+                    this._initTitleButton();
+                }
+            } else {
+
             }
         }
     },
@@ -186,7 +199,7 @@ var ButtonDropdownList = cc.Class({
      */
     _initTitleButton(selectionData) {
         // 显示默认选项
-        if (!!selectionData && selectionData.key === this._selectedKey) {
+        if (!!selectionData && selectionData.key === this._selectedKey && this.titleContainer.childrenCount > 0) {
             return;
         }
         let titleContainer = this.titleContainer;
@@ -219,15 +232,16 @@ var ButtonDropdownList = cc.Class({
     },
 
     /**
-     * 刷新
+     * 重置
      */
-    refresh() {
+    reset() {
         this._fold();
         let titleContainer = this.titleContainer;
         if (titleContainer.childrenCount > 0) {
             titleContainer.children[0].off(cc.Node.EventType.TOUCH_END, this._onOptionTouched, this);
         }
         this.titleContainer.removeAllChildren();
+        this.selectedKey = null;
         this._initTitleButton();
     },
 
@@ -297,7 +311,7 @@ var ButtonDropdownList = cc.Class({
         } else {
             // 选中， 收起
             let data = target.optionData;
-            if (data.key != this._selectedKey && data.enabled != false) {
+            if (data.key != this._selectedKey && data.enabled === true) {
                 this._selectedKey = data.key;
                 let selectedButton = this._createOneOption(data, true);
                 let titleContainer = this.titleContainer;
@@ -316,7 +330,7 @@ var ButtonDropdownList = cc.Class({
                     this.node.emit(ButtonDropdownList.Events.SELECTTION_CHANGED, event);
                 }
                 this._fold();
-            } else if (data.enabled != false) {
+            } else if (data.enabled === true) {
                 this._fold();
             }
         }
